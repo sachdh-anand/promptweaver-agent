@@ -1,0 +1,9 @@
+[project]
+name = "promptweaver"
+version = "0.1.0"
+dependencies = [
+  "crewai",
+  "docling>=2.30.0",
+  "openai",
+  "python-dotenv",
+]

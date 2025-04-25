@@ -1,8 +1,8 @@
 # PromptWeaver Agent v2
 
-[![Python Version](https://img.shields.io/badge/python-3.x-blue.svg)](https://www.python.org/)
+[![Python Version](https://img.shields.io/badge/python-3.12-blue.svg)](https://www.python.org/)
 [![Framework](https://img.shields.io/badge/framework-CrewAI-orange.svg)](https://www.crewai.com/)
-[![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE) <!-- Add a LICENSE file if applicable -->
+[![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 
 **Transform vague ideas into powerful, optimized AI prompts using cutting-edge frameworks and a curated knowledge base.**
 
@@ -11,34 +11,33 @@ PromptWeaver Agent v2 is an intelligent agent built with CrewAI designed to assi
 ## Key Features
 
 *   **Intelligent Prompt Generation:** Utilizes an LLM (configured via OpenRouter) and CrewAI agents to understand user intent and generate optimized prompts.
-*   **Knowledge-Driven:** References a local knowledge base (`knowledge/` directory) containing PDFs and Markdown files on prompt engineering techniques.
+*   **Knowledge-Driven:** References a local knowledge base (`knowledge/` directory) containing Markdown files on prompt engineering techniques.
 *   **Framework Integration:** Capable of applying and combining various prompt structures (e.g., PECRA, GRADE) for optimal results.
-*   **Easy Setup:** Uses `uv` for fast dependency management and environment setup.
 *   **Extensible:** Add new documents to the `knowledge/` folder to expand the agent's expertise.
+*   **Security and Compliance:** Implements input sanitization, GDPR/HIPAA compliance checks, and context isolation for robust security.
 
 ## Technology Stack
 
-*   **Python:** Core programming language.
+*   **Python 3.12:** Core programming language.
 *   **CrewAI:** Framework for orchestrating autonomous AI agents.
 *   **Docling:** Library used by CrewAI for processing knowledge base documents (PDFs, Markdown).
-*   **OpenRouter:** Configured LLM provider (can be changed in `main.py`).
-*   **uv:** Extremely fast Python package installer and resolver.
+*   **OpenRouter:** Configured LLM provider (can be changed in `src/main.py`).
 *   **dotenv:** For managing environment variables (like API keys).
 
 ## Getting Started
 
 ### Prerequisites
 
-*   Python 3.x installed.
+*   Python 3.12 installed.
 *   `uv` installed (`pip install uv` or see [uv installation guide](https://github.com/astral-sh/uv)).
-*   An OpenRouter API key (or modify `main.py` to use a different LLM provider).
+*   An OpenRouter API key (or modify `src/main.py` to use a different LLM provider).
 
 ### Installation & Setup
 
 1.  **Clone the repository:**
     ```bash
     git clone <your-repository-url>
-    cd promptweaver-agent-v2
+    cd promptweaver-agent
     ```
 2.  **Set up Environment Variable:**
     Create a `.env` file in the project root and add your OpenRouter API key:
@@ -54,7 +53,7 @@ PromptWeaver Agent v2 is an intelligent agent built with CrewAI designed to assi
 
 ## Usage
 
-Once the setup is complete, the `setup.ps1` script will automatically run `main.py`. The script will prompt you to enter your instruction:
+Once the setup is complete, the `setup.ps1` script will automatically run `src/main.py`. The script will prompt you to enter your instruction:
 
 ```
 Enter your instruction: [Your vague idea or goal here]
@@ -95,4 +94,4 @@ Contributions are welcome! Please feel free to submit pull requests or open issu
 
 ## License
 
-This project is licensed under the MIT License - see the LICENSE file for details (if applicable).
+This project is licensed under the MIT License - see the LICENSE file for details.

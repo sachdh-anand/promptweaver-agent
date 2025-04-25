@@ -7,3 +7,6 @@ dependencies = [
   "openai",
   "python-dotenv",
 ]
+
+[tool.crewai]
+entry_point = "src/main.py"

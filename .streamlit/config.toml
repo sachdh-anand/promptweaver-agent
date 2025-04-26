@@ -1,0 +1,14 @@
+[server]
+# Server configuration
+headless = false
+# enableCORS = false  # Commented out to avoid warning
+enableXsrfProtection = true
+
+[theme]
+# Dark theme settings
+base = "dark"
+primaryColor = "#4CAF50"
+backgroundColor = "#0E1117"
+secondaryBackgroundColor = "#262730"
+textColor = "#FAFAFA"
+font = "sans serif"

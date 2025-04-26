@@ -19,16 +19,44 @@ def extract_markdown_header(text: str) -> str:
     return None
 
 def sanitize_filename(text: str) -> str:
+    """
+    Create a safe filename from text by removing invalid characters.
+
+    Args:
+        text: The text to convert to a filename
+
+    Returns:
+        A sanitized filename string
+    """
+    # Remove invalid filename characters (Windows is most restrictive)
+    # Replace invalid chars with underscores
+    invalid_chars = r'[<>:"/\\|?*\']'
+    sanitized = re.sub(invalid_chars, '_', text.strip().lower())
+
     # Limit filename to first 10 words and add a short hash for uniqueness
-    base = "_".join(re.findall(r'\w+', text.strip().lower()))[:100]
-    short_text = "_".join(base.split("_")[:10])  # first 10 tokens
+    words = re.findall(r'\w+', sanitized)
+    short_text = "_".join(words[:10])  # first 10 tokens
     hash_id = hashlib.md5(text.encode()).hexdigest()[:6]
+
+    # Ensure the filename isn't too long
+    max_length = 100  # Safe length for most filesystems
+    if len(short_text) > max_length:
+        short_text = short_text[:max_length]
+
     return f"{short_text}_{hash_id}"
 
 def get_timestamp() -> str:
     return datetime.now().strftime("%Y-%m-%dT%H-%M-%S")
 
 def save_clean_output(prompt: str, instruction: str, output_dir="output"):
+    """
+    Save the generated prompt to a file with a sanitized filename.
+
+    Args:
+        prompt: The generated prompt content
+        instruction: The original user instruction
+        output_dir: Directory to save the file (default: "output")
+    """
     os.makedirs(output_dir, exist_ok=True)
 
     # Try to extract the first Markdown header from the prompt
@@ -38,8 +66,10 @@ def save_clean_output(prompt: str, instruction: str, output_dir="output"):
     else:
         # Fallback to extracting from instruction
         simple_title = extract_simple_title(instruction)
-    sanitized_title = "_".join(simple_title.lower().split())
-    filename = f"{sanitized_title}_{get_timestamp()}.md"
+
+    # Create a safe filename
+    base_filename = sanitize_filename(simple_title)
+    filename = f"{base_filename}_{get_timestamp()}.md"
     filepath = os.path.join(output_dir, filename)
 
     # Strip framework explanation if present

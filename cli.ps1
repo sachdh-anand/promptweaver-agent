@@ -14,11 +14,4 @@ Write-Host "📋 To exit the application, press Ctrl+C multiple times, or Ctrl+B
 Write-Host ""
 
 # Run the app
-$port = 8502
-streamlit run src/app.py --server.port $port $args
-
-# Wait a moment for Streamlit to start
-Start-Sleep -Seconds 2
-
-# Ensure browser opens (as a backup in case streamlit doesn't open it automatically)
-Start-Process "http://localhost:$port"
+streamlit run src/app.py

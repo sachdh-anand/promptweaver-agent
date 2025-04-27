@@ -3,7 +3,7 @@ import streamlit as st
 from dotenv import load_dotenv
 from pathlib import Path
 
-from crew import load_crew
+from crew import run_prompt_weaver_crew
 from utils.output_writer import save_clean_output
 
 # -- PRESET DEFINITIONS --------------------------------------
@@ -56,20 +56,9 @@ if "input_text" not in st.session_state:
     st.session_state.input_text = ""
 
 # -- BACKEND CALL FUNCTION -----------------------------------
-def enhance_prompt(text: str) -> str:
-    api_key = os.getenv("OPENROUTER_API_KEY")
-    if not api_key:
-        raise ValueError("OpenRouter API key is missing or invalid.")
-
-    crew = load_crew()
-    result = crew.kickoff(inputs={"instruction": text})
-    final_prompt = str(result)
-
-    try:
-        save_clean_output(prompt=final_prompt, instruction=text)
-    except Exception as e:
-        print(f"Warning: Could not save output to file: {e}")
-
+def enhance_prompt(user_input):
+    final_prompt = run_prompt_weaver_crew(user_input)
+    save_clean_output(prompt=final_prompt, instruction=user_input)
     return final_prompt
 
 # -- SIDEBAR -------------------------------------------------

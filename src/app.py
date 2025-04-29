@@ -106,7 +106,9 @@ with col2:
         st.markdown("### 🎯 Engineered Prompt Output")
 
         with st.expander("📄 View Prompt (Markdown)", expanded=True):
-            st.code(st.session_state.output, language="markdown")
+            # st.code(st.session_state.output, language="markdown")
+            st.markdown(st.session_state.output, unsafe_allow_html=True)
+
 
             st.download_button(
                 label="⬇️ Download .md",

@@ -1,98 +1,172 @@
-# PromptWeaver Agent v2
+# PromptWeaver Agent v2 🚀
 
-[![Python Version](https://img.shields.io/badge/python-3.x-blue.svg)](https://www.python.org/)
+[![Python Version](https://img.shields.io/badge/python-3.12-blue.svg)](https://www.python.org/)
 [![Framework](https://img.shields.io/badge/framework-CrewAI-orange.svg)](https://www.crewai.com/)
-[![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE) <!-- Add a LICENSE file if applicable -->
+[![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 
-**Transform vague ideas into powerful, optimized AI prompts using cutting-edge frameworks and a curated knowledge base.**
+**PromptWeaver Agent: Transforming Ideas into Optimized AI Prompts**
 
-PromptWeaver Agent v2 is an intelligent agent built with CrewAI designed to assist users in generating high-quality prompts for Large Language Models (LLMs). It leverages a dedicated knowledge base containing various prompt engineering strategies, frameworks (like PECRA, GRADE, Alex Formula), and best practices to convert simple instructions into effective prompts.
+PromptWeaver Agent v2 is a state-of-the-art tool designed to help users craft high-quality prompts for Large Language Models (LLMs). Whether you're a developer, product manager, or creative professional, PromptWeaver leverages advanced frameworks and a curated knowledge base to turn your ideas into actionable, production-ready prompts.
 
-## Key Features
+---
 
-*   **Intelligent Prompt Generation:** Utilizes an LLM (configured via OpenRouter) and CrewAI agents to understand user intent and generate optimized prompts.
-*   **Knowledge-Driven:** References a local knowledge base (`knowledge/` directory) containing PDFs and Markdown files on prompt engineering techniques.
-*   **Framework Integration:** Capable of applying and combining various prompt structures (e.g., PECRA, GRADE) for optimal results.
-*   **Easy Setup:** Uses `uv` for fast dependency management and environment setup.
-*   **Extensible:** Add new documents to the `knowledge/` folder to expand the agent's expertise.
+## 🌟 Key Features
 
-## Technology Stack
+- **Intelligent Prompt Generation**: Understands user intent and generates optimized prompts using CrewAI agents and LLMs.
+- **Knowledge-Driven**: Utilizes a rich knowledge base of prompt engineering techniques and frameworks.
+- **Framework Integration**: Supports advanced structures like PECRA, GRADE, and more.
+- **Extensibility**: Easily expand the knowledge base by adding new Markdown or PDF files.
+- **Enterprise-Grade Security**: Ensures input sanitization and compliance with GDPR/HIPAA standards.
 
-*   **Python:** Core programming language.
-*   **CrewAI:** Framework for orchestrating autonomous AI agents.
-*   **Docling:** Library used by CrewAI for processing knowledge base documents (PDFs, Markdown).
-*   **OpenRouter:** Configured LLM provider (can be changed in `main.py`).
-*   **uv:** Extremely fast Python package installer and resolver.
-*   **dotenv:** For managing environment variables (like API keys).
+---
 
-## Getting Started
+## 🛠️ Technology Stack
+
+- **Python 3.12**: Core programming language.
+- **CrewAI**: Framework for orchestrating autonomous AI agents.
+- **Streamlit**: Interactive web interface for prompt generation.
+- **OpenRouter**: Configured LLM provider (customizable).
+- **dotenv**: Environment variable management.
+
+---
+
+## 🚀 Getting Started
 
 ### Prerequisites
 
-*   Python 3.x installed.
-*   `uv` installed (`pip install uv` or see [uv installation guide](https://github.com/astral-sh/uv)).
-*   An OpenRouter API key (or modify `main.py` to use a different LLM provider).
+- Python 3.12 installed.
+- `uv` package manager (`pip install uv`).
+- OpenRouter API key (or modify to use a different LLM provider).
 
-### Installation & Setup
+### Installation
 
-1.  **Clone the repository:**
-    ```bash
-    git clone <your-repository-url>
-    cd promptweaver-agent-v2
-    ```
-2.  **Set up Environment Variable:**
-    Create a `.env` file in the project root and add your OpenRouter API key:
-    ```env
-    OPENROUTER_API_KEY='your_openrouter_api_key_here'
-    ```
-3.  **Run the setup script (using PowerShell on Windows):**
-    This script will create a virtual environment, install dependencies using `uv`, and run the agent.
-    ```powershell
-    .\setup.ps1
-    ```
-    *(Alternatively, you can manually create a venv, activate it, and run `uv pip install -r requirements.txt` if you generate one from `pyproject.toml`)*
+1. **Clone the Repository**:
+   ```bash
+   git clone <your-repository-url>
+   cd promptweaver-agent
+   ```
 
-## Usage
+2. **Set Up Environment Variables**:
+   Create a `.env` file in the project root:
+   ```env
+   OPENROUTER_API_KEY='your_openrouter_api_key_here'
+   ```
 
-Once the setup is complete, the `setup.ps1` script will automatically run `main.py`. The script will prompt you to enter your instruction:
+3. **Install Dependencies**:
+   Run the setup script (PowerShell for Windows):
+   ```powershell
+   .\setup.ps1
+   ```
 
-```
-Enter your instruction: [Your vague idea or goal here]
-```
+   Alternatively, manually create a virtual environment and install dependencies:
+   ```bash
+   python -m venv .venv
+   source .venv/bin/activate  # On Windows: .venv\Scripts\activate
+   uv pip install -r requirements.txt
+   ```
 
-The agent will then process your input, consult its knowledge base, and generate an optimized prompt based on established frameworks. The final prompt will be printed to the console.
+---
 
-Example:
+## 🎮 Usage
 
-```
-Enter your instruction: Create a social media post about the benefits of using AI for content creation
-```
+### Backend Operations
 
-*(Agent processing output will appear here)*
+To run the backend services and initialize the PromptWeaver Agent, use the `run_core_engine` script:
 
-```
-🔧 Final Generated Prompt:
-[Generated optimized prompt using a framework like PECRA or similar]
+**Windows**:
+```powershell
+.\run_core_engine.ps1
 ```
 
-## Knowledge Base
+**Linux/Mac**:
+```bash
+./run_core_engine.sh
+```
 
-The agent's expertise comes from the files located in the `knowledge/` directory. Currently, it includes resources on:
+This will start the backend services required for the agent to function.
 
-*   Deepseek Cheatsheet
-*   Gemini Multiverse Prompting
-*   God Prompt Techniques
-*   Grok Cheatsheet
-*   NeuroPrompt RAG Logic
-*   NeuroPrompt Situational Playbook
-*   Universal Prompt Engineering Framework
+### Interactive UI Application
 
-You can enhance the agent's capabilities by adding more relevant `.md` or `.pdf` files to this directory. The agent automatically scans and incorporates these files upon startup.
+To launch the interactive UI application, use the `launch_ui` script:
 
-## Contributing
+**Windows**:
+```powershell
+.\launch_ui.ps1
+```
 
-Contributions are welcome! Please feel free to submit pull requests or open issues for bugs, feature requests, or improvements.
+**Linux/Mac**:
+```bash
+./launch_ui.sh
+```
 
-## License
+This will provide a user-friendly interface for interacting with the PromptWeaver Agent.
 
-This project is licensed under the MIT License - see the LICENSE file for details (if applicable).
+---
+
+## 📚 Knowledge Base
+
+The agent's expertise is powered by the `knowledge/` directory, which includes:
+
+- **Blueprint Prompt Agent**
+- **Best Practices for Prompt Engineering with OpenAI**
+- **Deepseek Cheatsheet**
+- **Gemini Multiverse Prompting**
+- **God Prompt Techniques**
+- **NeuroPrompt RAG Logic**
+- **Universal Prompt Engineering Framework**
+
+You can enhance the agent by adding more `.md` or `.pdf` files to this directory. The system automatically integrates new knowledge sources upon restart.
+
+---
+
+## 🖥️ Demo
+
+![Demo Screenshot](https://via.placeholder.com/800x400?text=Demo+Screenshot)
+
+---
+
+## 🤝 Contributing
+
+We welcome contributions! Here's how you can help:
+
+1. Fork the repository.
+2. Create a new branch for your feature or bug fix.
+3. Submit a pull request with a detailed description of your changes.
+
+For major changes, please open an issue first to discuss what you would like to change.
+
+---
+
+## ❓ FAQs
+
+**Q: Can I use a different LLM provider?**
+A: Yes, modify the LLM configuration in `src/main.py`.
+
+**Q: How do I add new knowledge sources?**
+A: Place `.md` or `.pdf` files in the `knowledge/` directory.
+
+**Q: What if I encounter an error?**
+A: Check the logs in the `logs/` directory or open an issue on GitHub.
+
+---
+
+## 📜 License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+---
+
+## 🌐 Community Support
+
+Join our [Discord Community](https://discord.gg/example) or follow us on [Twitter](https://twitter.com/example) for updates and support.
+
+---
+
+## 🏗️ Roadmap
+
+- **Enhanced Multi-Agent Collaboration**: Introduce new agent roles for deeper analysis and validation.
+- **Dynamic Knowledge Updates**: Enable real-time integration of new knowledge sources without restarting the application.
+- **Expanded LLM Support**: Add support for additional LLM providers like Anthropic and Cohere.
+- **Advanced Analytics Dashboard**: Provide insights into prompt performance and usage trends.
+
+Stay tuned for updates and feel free to suggest features via GitHub issues!

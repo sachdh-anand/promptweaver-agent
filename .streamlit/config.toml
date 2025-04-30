@@ -1,0 +1,26 @@
+
+# .streamlit/config.toml
+
+[theme]
+# Primary accent color
+primaryColor="#4CAF50" # A vibrant green (matches your button)
+
+# Background color of the main content area
+backgroundColor="#1C1E24" # Dark charcoal
+
+# Background color of the sidebar and components
+secondaryBackgroundColor="#282A36" # Slightly lighter dark
+
+# Text color
+textColor="#F8F8F2" # Off-white (Dracula-like theme)
+
+# Font family (optional, requires compatible fonts)
+# You might need to inject fonts via CSS if you want custom ones not standard on systems
+# font="sans serif"
+# font="monospace"
+font="sans serif" # Keep default sans serif for stability
+
+[global]
+# Suppress the "Made with Streamlit" footer if desired (requires Streamlit >= 1.16)
+# showWarningOnDirectExecution = false
+# showFooter = false

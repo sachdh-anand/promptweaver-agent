@@ -30,3 +30,5 @@ knowledge/*.bak
 *.tmp
 *.swp
 *.swo
+
+promptweaver.egg-info/

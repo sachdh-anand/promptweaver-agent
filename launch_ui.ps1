@@ -9,7 +9,7 @@ uv pip install streamlit
 
 # Display helpful exit information
 Write-Host ""
-Write-Host "🚀 Starting PromptForge Studio..."
+Write-Host "🚀 Starting PromptWeaver Studio..."
 Write-Host "📋 To exit the application, press Ctrl+C multiple times, or Ctrl+Break, or close this terminal window"
 Write-Host ""
 

@@ -6,7 +6,7 @@
 
 **PromptWeaver Agent: Transforming Ideas into Optimized AI Prompts**
 
-PromptWeaver Agent v2 is a cutting-edge tool designed to help users craft high-quality prompts for Large Language Models (LLMs). Whether you're a developer, product manager, or creative professional, PromptWeaver leverages advanced frameworks and a curated knowledge base to turn your ideas into actionable, production-ready prompts.
+PromptWeaver Agent v2 is a state-of-the-art tool designed to help users craft high-quality prompts for Large Language Models (LLMs). Whether you're a developer, product manager, or creative professional, PromptWeaver leverages advanced frameworks and a curated knowledge base to turn your ideas into actionable, production-ready prompts.
 
 ---
 
@@ -71,32 +71,32 @@ PromptWeaver Agent v2 is a cutting-edge tool designed to help users craft high-q
 
 ### Backend Operations
 
-To run the backend services and initialize the PromptWeaver Agent, use the `run` script:
+To run the backend services and initialize the PromptWeaver Agent, use the `run_core_engine` script:
 
 **Windows**:
 ```powershell
-.\run.ps1
+.\run_core_engine.ps1
 ```
 
 **Linux/Mac**:
 ```bash
-./run.sh
+./run_core_engine.sh
 ```
 
 This will start the backend services required for the agent to function.
 
 ### Interactive UI Application
 
-To launch the interactive UI application, use the `cli` script:
+To launch the interactive UI application, use the `launch_ui` script:
 
 **Windows**:
 ```powershell
-.\cli.ps1
+.\launch_ui.ps1
 ```
 
 **Linux/Mac**:
 ```bash
-./cli.sh
+./launch_ui.sh
 ```
 
 This will provide a user-friendly interface for interacting with the PromptWeaver Agent.
@@ -107,13 +107,15 @@ This will provide a user-friendly interface for interacting with the PromptWeave
 
 The agent's expertise is powered by the `knowledge/` directory, which includes:
 
-- Deepseek Cheatsheet
-- Gemini Multiverse Prompting
-- God Prompt Techniques
-- NeuroPrompt RAG Logic
-- Universal Prompt Engineering Framework
+- **Blueprint Prompt Agent**
+- **Best Practices for Prompt Engineering with OpenAI**
+- **Deepseek Cheatsheet**
+- **Gemini Multiverse Prompting**
+- **God Prompt Techniques**
+- **NeuroPrompt RAG Logic**
+- **Universal Prompt Engineering Framework**
 
-You can enhance the agent by adding more `.md` or `.pdf` files to this directory.
+You can enhance the agent by adding more `.md` or `.pdf` files to this directory. The system automatically integrates new knowledge sources upon restart.
 
 ---
 
@@ -125,7 +127,13 @@ You can enhance the agent by adding more `.md` or `.pdf` files to this directory
 
 ## 🤝 Contributing
 
-We welcome contributions! Feel free to submit pull requests or open issues for bugs, features, or improvements.
+We welcome contributions! Here's how you can help:
+
+1. Fork the repository.
+2. Create a new branch for your feature or bug fix.
+3. Submit a pull request with a detailed description of your changes.
+
+For major changes, please open an issue first to discuss what you would like to change.
 
 ---
 
@@ -138,7 +146,7 @@ A: Yes, modify the LLM configuration in `src/main.py`.
 A: Place `.md` or `.pdf` files in the `knowledge/` directory.
 
 **Q: What if I encounter an error?**
-A: Check the logs or open an issue on GitHub.
+A: Check the logs in the `logs/` directory or open an issue on GitHub.
 
 ---
 
@@ -151,3 +159,14 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 ## 🌐 Community Support
 
 Join our [Discord Community](https://discord.gg/example) or follow us on [Twitter](https://twitter.com/example) for updates and support.
+
+---
+
+## 🏗️ Roadmap
+
+- **Enhanced Multi-Agent Collaboration**: Introduce new agent roles for deeper analysis and validation.
+- **Dynamic Knowledge Updates**: Enable real-time integration of new knowledge sources without restarting the application.
+- **Expanded LLM Support**: Add support for additional LLM providers like Anthropic and Cohere.
+- **Advanced Analytics Dashboard**: Provide insights into prompt performance and usage trends.
+
+Stay tuned for updates and feel free to suggest features via GitHub issues!

@@ -21,7 +21,8 @@ if (-not (Test-Path '.venv')) {
 
 Write-Host ""
 Write-Host "🚀 Running PromptWeaver..."
-$env:PYTHONPATH = "src"
+# Set PYTHONPATH to include both the current directory and src
+$env:PYTHONPATH = "$scriptDir;$scriptDir\src"
 uv run python src/main.py
 
 Pop-Location

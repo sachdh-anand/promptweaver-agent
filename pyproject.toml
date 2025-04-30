@@ -1,3 +1,5 @@
+# pyproject.toml
+
 [project]
 name = "promptweaver"
 version = "0.1.0"
@@ -8,6 +10,11 @@ dependencies = [
   "openai",
   "python-dotenv",
   "streamlit",  # Added for Streamlit UI
+  "chromadb>=0.4.18",  # Required for knowledge storage
+  "sentence-transformers>=2.2.2",  # Required for embeddings
+  "unstructured>=0.10.30",  # Required for document processing
+  "onnxruntime",  # Speeds up sentence-transformers
+  "tiktoken",  # Required for token counting
 ]
 
 [tool.crewai]

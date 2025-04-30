@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 set -e
 
-cd "$(dirname "$0")"
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+cd "$SCRIPT_DIR"
 
 # Check for uv
 if ! command -v uv &> /dev/null; then
@@ -23,4 +24,6 @@ fi
 # Run the CrewAI project
 echo ""
 echo "🚀 Running PromptWeaver..."
-PYTHONPATH=src uv run python src/main.py
+# Set PYTHONPATH to include both the current directory and src
+export PYTHONPATH="$SCRIPT_DIR:$SCRIPT_DIR/src"
+uv run python src/main.py

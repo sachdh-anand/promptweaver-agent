@@ -1,0 +1,28 @@
+ 
+[2025-05-01 14:45:58][WARNING]: Failed to init knowledge: Failed to create or get collection
+INFO:     127.0.0.1:52670 - "GET /.well-known/agent.json HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52672 - "POST /a2a HTTP/1.1" 200 OK
++-------------------------- Crew Execution Started ---------------------------+
+|                                                                             |
+|  Crew Execution Started                                                     |
+|  Name: crew                                                                 |
+|  ID: fd2157d6-78b2-45a5-bf40-caef4d22e0ba                                   |
+|                                                                             |
+|                                                                             |
++-----------------------------------------------------------------------------+
+
+ 
+[2025-05-01 14:46:01][INFO]: Planning the crew execution
+[Retry 1/3] Error: 'charmap' codec can't encode character '\U0001f680' in position 0: character maps to <undefined>
+Retrying in 5 seconds...
+[Retry 2/3] Error: 'charmap' codec can't encode character '\U0001f680' in position 0: character maps to <undefined>
+Retrying in 5 seconds...
+[Retry 3/3] Error: 'charmap' codec can't encode character '\U0001f680' in position 0: character maps to <undefined>
+INFO:     127.0.0.1:53004 - "POST /a2a HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53011 - "POST /a2a HTTP/1.1" 200 OK
+[Retry 1/3] Error: 'charmap' codec can't encode character '\U0001f680' in position 0: character maps to <undefined>
+Retrying in 5 seconds...
+[Retry 2/3] Error: 'charmap' codec can't encode character '\U0001f680' in position 0: character maps to <undefined>
+Retrying in 5 seconds...
+[Retry 3/3] Error: 'charmap' codec can't encode character '\U0001f680' in position 0: character maps to <undefined>
+INFO:     127.0.0.1:53337 - "POST /a2a HTTP/1.1" 200 OK

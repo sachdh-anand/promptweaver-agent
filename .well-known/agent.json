@@ -1,0 +1,77 @@
+{
+    "agent": {
+      "schema_version": "1.0.0",
+      "id": "promptweaver-agent",
+      "name": "PromptWeaver",
+      "description": "A specialized agent for crafting high-quality prompts for Large Language Models",
+      "version": "2.0.1",
+      "auth": {
+        "type": "none"
+      },
+      "endpoint": "http://localhost:8000/a2a",
+      "endpoints": {
+        "a2a": "http://localhost:8000/a2a"
+      },
+      "contact_info": {
+        "name": "PromptWeaver Support",
+        "email": "support@example.com"
+      }
+    },
+    "capabilities": {
+      "modality_support": {
+        "text": true,
+        "form": true,
+        "image": false,
+        "audio": false,
+        "video": false
+      },
+      "streaming_support": true,
+      "contexts": [
+        "code",
+        "creative",
+        "technical",
+        "educational",
+        "business"
+      ],
+      "languages": ["en"]
+    },
+    "skills": [
+      {
+        "id": "generate-prompt",
+        "name": "Generate Prompt",
+        "description": "Create an optimized prompt based on requirements",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "mode": {
+              "type": "string",
+              "enum": ["lean", "full"],
+              "description": "Processing mode - lean (faster) or full (more comprehensive)",
+              "default": "lean"
+            },
+            "description": {
+              "type": "string",
+              "description": "User's description of the prompt they need"
+            }
+          },
+          "required": ["description"]
+        },
+        "examples": [
+          "Generate a prompt for explaining quantum physics to children",
+          "Create a prompt for code refactoring assistance"
+        ]
+      }
+    ],
+    "custom_data": {
+      "operating_modes": [
+        {
+          "name": "lean",
+          "description": "Faster processing with core agents only"
+        },
+        {
+          "name": "full",
+          "description": "Comprehensive processing with additional validation and critique steps"
+        }
+      ]
+    }
+  }

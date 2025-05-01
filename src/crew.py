@@ -370,17 +370,23 @@ if not USE_LEAN_MODE:
 # Add the final task which depends on the mode's context
 tasks_list.append(task_finalize)
 
-# Create the Crew instance
+# Add a planning flag to the Crew configuration
+PLANNING_ENABLED = os.getenv("PLANNING_ENABLED", "false").lower() == "true"
+PLANNING_LLM = os.getenv("PLANNING_LLM", "gpt-3.5-turbo")
+
+# Update the Crew instance to include the planning flag if enabled
 try:
     prompt_engineering_crew = Crew(
         agents=agents_list,
         tasks=tasks_list,
         knowledge_sources=[knowledge_source_config] if knowledge_source_config else [],
         process=Process.sequential,  # Ensures tasks run in the defined list order
-        verbose=CREWAI_VERBOSE  # Use the environment variable here
+        verbose=CREWAI_VERBOSE,  # Use the environment variable here
+        planning=True,  # Add planning flag
+        # planning_llm=PLANNING_LLM if PLANNING_ENABLED else None  # Specify the planning LLM if planning is enabled
         # memory=True # Uncomment if long-term memory across tasks is needed
     )
-    logger.info(f"Prompt Engineering Crew assembled successfully for {OPERATING_MODE} Mode (Verbose: {CREWAI_VERBOSE}).")
+    logger.info(f"Prompt Engineering Crew assembled successfully for {OPERATING_MODE} Mode (Verbose: {CREWAI_VERBOSE}, Planning: {PLANNING_ENABLED}).")
     if CREWAI_VERBOSE:
         logger.debug(f"Agents in crew: {[agent.role for agent in agents_list]}")
         logger.debug(f"Tasks in crew: {[task.description[:50]+'...' for task in tasks_list]}")

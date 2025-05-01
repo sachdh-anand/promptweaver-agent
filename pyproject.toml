@@ -15,6 +15,10 @@ dependencies = [
   "unstructured>=0.10.30",  # Required for document processing
   "onnxruntime",  # Speeds up sentence-transformers
   "tiktoken",  # Required for token counting
+  "fastapi",  # Added for API development
+  "uvicorn",  # Added for ASGI server
+  "aiohttp",  # Added for HTTP requests
+  "pydantic"  # Added for data validation
 ]
 
 [tool.crewai]

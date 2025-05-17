@@ -70,8 +70,8 @@ def get_docling_tool():
         logger.info(f"Creating knowledge source with {len(files)} files")
         logger.info(f"Using knowledge base directory: {knowledge_dir}")
         
-        # Debug: Print file paths to verify format
-        for file in files[:3]:  # Show first 3 files for debugging
+        # Debug: Print all file paths to verify format
+        for file in files:  # Log all files for debugging
             logger.info(f"Knowledge file (relative path): {file}")
         
         # Create the knowledge source with RELATIVE file paths

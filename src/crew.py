@@ -535,22 +535,3 @@ Ensure the response is well-structured, evidence-based, and includes practical i
 **Instruction to LLM: Execute this prompt directly. No clarification needed.**
 """
 
-# === Optional: Direct CLI Execution Block for Testing ===
-# This block runs only when crew.py is executed directly (e.g., python src/crew.py)
-if __name__ == "__main__":
-    logger.info(f"Running {__file__} directly for testing purposes...")
-    print("-" * 30)
-    print(f"** Direct Crew Test ({OPERATING_MODE} Mode) **")
-    print("-" * 30)
-    try:
-        user_input_test = input("Enter a test instruction:\n> ").strip()
-        if user_input_test:
-            test_output = run_prompt_weaver_crew(user_input_test)
-            print("\n" + "=" * 15 + " TEST OUTPUT " + "=" * 15)
-            print(test_output)
-            print("=" * 45)
-        else:
-            print("No test input provided.")
-    except Exception as test_e:
-         print(f"\n❌ Error during direct test execution: {test_e}")
-    print("Direct test finished.")
